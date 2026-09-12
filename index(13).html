@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Maison Éclat — Café artisanal à Clermont-Ferrand</title>
+  <meta name="description" content="Maison Éclat, café artisanal fictif à Clermont-Ferrand. Découvrez nos cafés, pâtisseries maison, notre histoire et nos horaires. Site créé dans le cadre d'un exercice web.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1f1712">
+
+  <!-- Favicon : fichiers séparés à la racine du dépôt GitHub (plus de data URI) -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maison Éclat — Café artisanal à Clermont-Ferrand">
+  <meta property="og:description" content="Cafés soigneusement sélectionnés, pâtisseries maison et ambiance chaleureuse.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maison Éclat">
+
+  <!-- Données structurées : nom du site + activité fictive -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Maison Éclat",
+      "alternateName": "Maison Eclat",
+      "url": "https://REMPLACER-PAR-L-URL-NETLIFY.netlify.app/"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "CafeOrCoffeeShop",
+      "name": "Maison Éclat",
+      "description": "Café artisanal fictif créé dans le cadre d'un exercice de création de site web.",
+      "servesCuisine": ["Café", "Pâtisseries"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Clermont-Ferrand",
+        "addressCountry": "FR"
+      },
+      "url": "https://REMPLACER-PAR-L-URL-NETLIFY.netlify.app/"
+    }
+  ]
+  </script>
+
+  <style>
+    :root{
+      --dark:#1f1712;
+      --brown:#3a2920;
+      --cream:#f8f1e7;
+      --gold:#e9c46a;
+      --white:#fffdf9;
+      --muted:#6f6259;
+      --border:#e8ddd0;
+      --shadow:0 18px 50px rgba(31,23,18,.10);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--dark);
+      background:var(--white);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;object-fit:cover}
+    .container{width:min(1120px,92%);margin:auto}
+
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,253,249,.94);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(232,221,208,.8);
+    }
+    nav{
+      min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px;
+    }
+    .logo{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.03em}
+    .logo-mark{
+      width:42px;height:42px;border-radius:13px;background:var(--dark);
+      display:grid;place-items:center;color:var(--gold);font-weight:900;font-size:20px;
+    }
+    .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:650}
+    .nav-links a:hover{color:#a06f16}
+    .nav-cta{
+      background:var(--dark);color:white;padding:11px 17px;border-radius:999px;
+    }
+    .nav-cta:hover{background:#3b2a21;color:white}
+
+    .hero{
+      min-height:calc(100vh - 76px);
+      display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center;
+      padding:70px 0;
+    }
+    .eyebrow{
+      display:inline-flex;padding:7px 12px;border-radius:999px;
+      background:#f3eadc;color:#8a5e12;font-size:12px;font-weight:800;
+      text-transform:uppercase;letter-spacing:.12em;margin-bottom:20px;
+    }
+    h1{
+      font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-.055em;
+      max-width:720px;margin-bottom:24px;
+    }
+    .hero p{font-size:18px;color:var(--muted);max-width:600px;margin-bottom:32px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 21px;border-radius:999px;font-weight:750;border:1px solid var(--dark);
+      transition:.2s transform,.2s background;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--dark);color:white}
+    .btn-secondary{background:transparent}
+    .hero-image{position:relative}
+    .hero-image img{height:620px;border-radius:30px;box-shadow:var(--shadow)}
+    .badge{
+      position:absolute;bottom:25px;left:-20px;background:white;border:1px solid var(--border);
+      border-radius:18px;padding:17px 19px;box-shadow:var(--shadow);font-size:14px;font-weight:750;
+    }
+
+    section{padding:105px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}
+    .section-head h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.045em;line-height:1.05}
+    .section-head p{max-width:500px;color:var(--muted)}
+    .cream{background:var(--cream)}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{
+      background:white;border:1px solid var(--border);border-radius:24px;overflow:hidden;
+      transition:.25s transform,.25s box-shadow;
+    }
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .card img{height:235px}
+    .card-content{padding:22px}
+    .card-content h3{font-size:21px;margin-bottom:7px}
+    .card-content p{color:var(--muted);font-size:14px}
+    .price{display:block;margin-top:16px;font-weight:850;font-size:17px}
+
+    .about{
+      display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center;
+    }
+    .about img{height:520px;border-radius:28px}
+    .about-copy h2{font-size:clamp(32px,4vw,54px);line-height:1.05;letter-spacing:-.05em;margin-bottom:22px}
+    .about-copy p{color:var(--muted);margin-bottom:18px}
+    .checks{display:grid;gap:10px;margin-top:25px}
+    .check{display:flex;gap:10px;align-items:flex-start;font-weight:650}
+    .check span{color:#a06f16;font-weight:900}
+
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:16px}
+    .gallery img{height:280px;border-radius:20px}
+    .gallery img:first-child{height:576px;grid-row:span 2}
+    .gallery img:last-child{grid-column:2 / 4}
+
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .info{
+      padding:28px;border:1px solid var(--border);border-radius:22px;background:white;
+    }
+    .info small{display:block;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#a06f16;margin-bottom:8px}
+    .info strong{font-size:18px}
+
+    footer{background:var(--dark);color:#eee5dc;padding:50px 0 30px}
+    .footer-top{display:flex;justify-content:space-between;gap:40px;align-items:start}
+    footer .logo{color:white}
+    .footer-note{max-width:520px;color:#bdb1a6;font-size:14px}
+    .footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid #44372f;color:#9e9288;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+
+    @media(max-width:850px){
+      .nav-links a:not(.nav-cta){display:none}
+      .hero,.about{grid-template-columns:1fr}
+      .hero{padding-top:45px}
+      .hero-image img{height:460px}
+      .badge{left:15px}
+      .cards,.info-grid{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+      .gallery{grid-template-columns:1fr 1fr}
+      .gallery img:first-child{height:400px;grid-row:span 2}
+      .gallery img:last-child{grid-column:auto}
+      .footer-top,.footer-bottom{display:block}
+      .footer-note{margin-top:18px}
+      .footer-bottom p+ p{margin-top:8px}
+    }
+    @media(max-width:520px){
+      section{padding:75px 0}
+      .hero-image img{height:390px}
+      .gallery{display:grid;grid-template-columns:1fr}
+      .gallery img,.gallery img:first-child{height:280px;grid-column:auto;grid-row:auto}
+      .logo-mark{width:38px;height:38px}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container" aria-label="Navigation principale">
+      <a class="logo" href="#accueil" aria-label="Maison Éclat - accueil">
+        <span class="logo-mark">M</span>
+        <span>Maison Éclat</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#cafes">Nos cafés</a>
+        <a href="#histoire">Notre histoire</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Nous trouver</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero" id="accueil">
+      <div>
+        <span class="eyebrow">Café artisanal · Clermont-Ferrand</span>
+        <h1>Le café qui prend le temps de bien faire.</h1>
+        <p>
+          Bienvenue chez Maison Éclat, un café artisanal fictif imaginé pour cet exercice.
+          Cafés soigneusement sélectionnés, pâtisseries maison et ambiance chaleureuse au cœur de Clermont-Ferrand.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#cafes">Découvrir la carte</a>
+          <a class="btn btn-secondary" href="#contact">Voir les horaires</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85"
+          alt="Tasse de café sur une table dans un café chaleureux"
+          loading="eager">
+        <div class="badge">☕ Torréfaction soigneuse<br><span style="font-weight:500;color:#6f6259">Un moment simple, bien préparé.</span></div>
+      </div>
+    </section>
+
+    <section class="cream" id="cafes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">La carte</span>
+            <h2>Quelques favoris.</h2>
+          </div>
+          <p>Une sélection fictive pensée pour présenter les produits d'un café sur un site vitrine moderne.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85" alt="Café latte servi dans une tasse" loading="lazy">
+            <div class="card-content">
+              <h3>Latte Maison</h3>
+              <p>Espresso équilibré et lait onctueux, servi chaud.</p>
+              <span class="price">4,20 €</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85" alt="Pain et pâtisseries artisanales" loading="lazy">
+            <div class="card-content">
+              <h3>Gâteau du jour</h3>
+              <p>Une pâtisserie maison renouvelée selon l'inspiration du moment.</p>
+              <span class="price">4,80 €</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=85" alt="Grains de café fraîchement torréfiés" loading="lazy">
+            <div class="card-content">
+              <h3>Café filtre</h3>
+              <p>Une origine mise à l'honneur pour révéler ses arômes.</p>
+              <span class="price">3,50 €</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="histoire">
+      <div class="container about">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85" alt="Intérieur lumineux d'un café" loading="lazy">
+
+        <div class="about-copy">
+          <span class="eyebrow">Notre histoire</span>
+          <h2>Un lieu imaginé autour du bon café.</h2>
+          <p>
+            Maison Éclat est une entreprise fictive créée uniquement pour cet exercice de conception web.
+            Le projet reproduit les besoins d'un véritable site vitrine local, tout en précisant clairement qu'il ne s'agit pas d'un commerce réel.
+          </p>
+          <p>
+            Les produits, tarifs, horaires et coordonnées présentés ici sont entièrement fictifs et servent uniquement à l'entraînement.
+          </p>
+
+          <div class="checks">
+            <div class="check"><span>✓</span> Produits sélectionnés avec soin</div>
+            <div class="check"><span>✓</span> Pâtisseries imaginées sur place</div>
+            <div class="check"><span>✓</span> Une ambiance simple et chaleureuse</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cream" id="galerie">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Galerie</span>
+            <h2>L'ambiance Maison Éclat.</h2>
+          </div>
+          <p>Des visuels de démonstration utilisés uniquement pour cet exercice.</p>
+        </div>
+
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85" alt="Salle d'un café accueillant" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85" alt="Café servi sur une table" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=900&q=85" alt="Tasse de café avec mousse" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=85" alt="Table dans un café" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Informations</span>
+            <h2>Venez nous rendre visite.</h2>
+          </div>
+          <p>Les coordonnées ci-dessous sont volontairement fictives et servent uniquement à l'entraînement.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info">
+            <small>Localisation</small>
+            <strong>Clermont-Ferrand<br>Adresse fictive pour exercice</strong>
+          </div>
+          <div class="info">
+            <small>Horaires fictifs</small>
+            <strong>Lun–Ven : 8h–18h<br>Sam : 9h–17h</strong>
+          </div>
+          <div class="info">
+            <small>Contact fictif</small>
+            <strong>bonjour@maison-eclat.example<br>04 00 00 00 00</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="logo"><span class="logo-mark">M</span><span>Maison Éclat</span></div>
+        </div>
+        <p class="footer-note">
+          Site fictif créé à des fins d'apprentissage du développement web, du déploiement web et du référencement.
+          Aucune entreprise réelle n'est représentée.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Maison Éclat — Projet fictif</p>
+        <p>Exercice : HTML · CSS · SEO · Déploiement web</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
